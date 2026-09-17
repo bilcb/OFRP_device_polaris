@@ -1,0 +1,6 @@
+# USB
+sys.usb.mtp.batchcancel=1
+vendor.usb.use_ffs_mtp=1
+
+# Gatekeeper
+vendor.gatekeeper.disable_spu=true
