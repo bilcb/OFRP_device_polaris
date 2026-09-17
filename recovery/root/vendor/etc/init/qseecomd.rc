@@ -1,0 +1,8 @@
+on init
+    wait /dev/qseecom
+    start vendor.qseecomd
+
+service vendor.qseecomd /vendor/bin/qseecomd
+    class core
+    user root
+    group root

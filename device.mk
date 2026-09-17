@@ -148,13 +148,9 @@ endif
 ifeq ($(FOX_USE_KEYMASTER_4),1)
     OF_DEFAULT_KEYMASTER_VERSION := 4.0
     PRODUCT_PROPERTY_OVERRIDES += ro.fox.keymaster_version=4
-    PRODUCT_COPY_FILES += \
-        $(DEVICE_PATH)/recovery/keymaster4/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/etc/vintf/manifest.xml
 else
     OF_DEFAULT_KEYMASTER_VERSION := 3.0
     PRODUCT_PROPERTY_OVERRIDES += ro.fox.keymaster_version=3
-    PRODUCT_COPY_FILES += \
-        $(DEVICE_PATH)/recovery/keymaster3/manifest.xml:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/etc/vintf/manifest.xml
 endif
 
 # copy recovery/fstab_files/ from the device directory (if it exists)
