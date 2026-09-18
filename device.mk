@@ -62,8 +62,8 @@ TW_USE_FSCRYPT_POLICY := 2
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := false
-BOARD_USES_METADATA_PARTITION := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+BOARD_USES_METADATA_PARTITION := true
 
 # version
 PLATFORM_VERSION := 99.87.36
@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
 # Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
+    libdmabufheap \
     libboot_control_client \
     android.hardware.boot-V1-ndk \
     vendor.display.config@1.0 \
@@ -92,6 +93,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libboot_control_client.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.boot-V1-ndk.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
