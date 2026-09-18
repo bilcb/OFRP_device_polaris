@@ -8,6 +8,13 @@
         <version>2</version>
         <fqname>IHealth/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.system.keystore2</name>
+        <interface>
+            <name>IKeystoreService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl">
         <name>android.hidl.manager</name>
         <transport>hwbinder</transport>

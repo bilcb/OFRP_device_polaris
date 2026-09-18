@@ -143,6 +143,21 @@ process_fstab_files() {
     cp -a "$src_flags" "$TF"
 }
 
+# The qcom_decrypt rc addresses decrypt services at /system/bin, while the
+# blobs live at /vendor/bin/hw (and relink is skipped on SDK>=29), so link
+# the whole vendor bin dirs into /system/bin. Runs on init, before any
+# decrypt trigger. Existing /system/bin files are never overwritten.
+link_decrypt_bins() {
+    local f
+    local b
+    for f in /vendor/bin/* /vendor/bin/hw/*; do
+        [ -e "$f" ] || continue
+        b="${f##*/}"
+        [ -e "/system/bin/$b" ] || ln -s "$f" "/system/bin/$b"
+    done
+}
+
 TESTING_LOG "Running $0"
+link_decrypt_bins
 process_fstab_files
 exit 0
