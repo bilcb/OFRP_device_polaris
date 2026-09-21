@@ -1,0 +1,5 @@
+# ADB
+ro.adb.secure=0
+
+# fastbootd
+ro.fastbootd.available=true
