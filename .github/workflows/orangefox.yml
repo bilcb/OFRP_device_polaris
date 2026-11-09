@@ -159,6 +159,8 @@ jobs:
 
         if [ -n "$RELEASE" ]; then
           LUNCH_COMBO="twrp_${{ inputs.DEVICE_NAME }}-${RELEASE}-eng"
+        elif lunch --help 2>&1 | grep -qE "TARGET_RELEASE|legacy format"; then
+          LUNCH_COMBO="twrp_${{ env.LUNCH_TARGET }}"
         else
           LUNCH_COMBO="twrp_${{ inputs.DEVICE_NAME }}-eng"
         fi
