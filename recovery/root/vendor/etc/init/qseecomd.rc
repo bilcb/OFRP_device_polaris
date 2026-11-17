@@ -1,0 +1,9 @@
+on init
+    start vendor.qseecomd
+
+service vendor.qseecomd /vendor/bin/qseecomd
+    socket notify-topology stream 660 system drmrpc
+    class core
+    seclabel u:r:init:s0
+    user root
+    group root drmrpc
